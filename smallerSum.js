@@ -1,18 +1,17 @@
 const smallerSum = (array) => {
   array.sort((a, b) => a - b);
-  console.log(array);
 
-  let all = [];
+  let total = 0;
   for (let i = 0; i < array.length; i++) {
-    for (let j = i + 1; j < array.length - 1; j++) {
-      all.push(array[i] + array[j]);
+    if (array[i] > total + 1) {
+      return total + 1;
     }
+
+    total += array[i];
   }
-  console.log(all);
 
-  // smallerSum(all.sort((a, b) => a - b));
-
-  console.log(all.sort((a, b) => a - b));
+  // If not gep were found, we return the max sum + 1
+  return total + 1;
 };
 
 module.exports = smallerSum;
